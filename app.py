@@ -96,7 +96,7 @@ st.markdown(
 st.sidebar.markdown("## 🧭 Navigasi Menu")
 selected_menu = st.sidebar.radio(
     "Pilih Menu:",
-    ["🏠 Dashboard", "👤 About Me", "🚀 Portofolio & Pengalaman", "📬 Kontak"]
+    ["🏠 Dashboard", "👨‍💻 About Me", "🚀 Portofolio & Pengalaman", "📬 Kontak"]
 )
 
 st.sidebar.markdown("---")
@@ -149,8 +149,8 @@ if selected_menu == "🏠 Dashboard":
 # ==========================================
 # 2. MENU ABOUT (TENTANG SAYA & PENDIDIKAN)
 # ==========================================
-elif selected_menu == "👤 About Me":
-    st.markdown('<h2 class="section-header">👤 Tentang Saya</h2>', unsafe_allow_html=True)
+elif selected_menu == "👨‍💻 About Me":
+    st.markdown('<h2 class="section-header">👨‍💻 Tentang Saya</h2>', unsafe_allow_html=True)
     
     about_col1, about_col2 = st.columns([1.5, 1], gap="large")
     with about_col1:
@@ -166,7 +166,7 @@ elif selected_menu == "👤 About Me":
         )
     with about_col2:
         try:
-            st.image("file_0000000009247208b1c50a03e0175858.png", caption="Muhammad Chamdani", use_container_width=True)
+            st.image("file_0000000009247208b1c50a03e0175858.png", caption="Muhammad Chamdani s.kom", use_container_width=True)
         except:
             pass
 
