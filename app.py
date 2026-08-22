@@ -100,7 +100,7 @@ with prof_col1:
     try:
         # Menggunakan markdown untuk mempermudah styling foto lokal
         st.markdown(
-            f'<img src="data:image/jpeg;base64,{st.image("image_0.png", output_format="JPEG", use_container_width=False).getvalue().decode("base64")}" class="profile-img">',
+            f'<img src="data:image/jpeg;base64,{st.image("file_0000000009247208b1c50a03e0175858", output_format="png", use_container_width=False).getvalue().decode("base64")}" class="profile-img">',
             unsafe_allow_html=True
         )
     except FileNotFoundError:
