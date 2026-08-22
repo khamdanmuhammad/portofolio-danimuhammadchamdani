@@ -37,9 +37,9 @@ st.write("#")
 col1, col2 = st.columns([1, 2], gap="medium")
 
 with col1:
-    # Anda bisa mengganti URL gambar ini dengan foto profil Anda
+    # Menampilkan foto profil yang Anda unggah
     st.image(
-        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400",
+        "image_2.png", # Menggunakan file gambar yang Anda berikan
         caption="Muhammad Chamdani",
         use_container_width=True,
     )
@@ -132,9 +132,9 @@ st.markdown("---")
 st.header("📬 Hubungi Saya")
 st.write("Tertarik berkolaborasi atau ingin mengenal saya lebih lanjut? Silakan hubungi melalui:")
 st.markdown(
-    """
-* 📧 **Email:** (Email Anda)
-* 📱 **WhatsApp / Telepon:** (Nomor Anda)
-* 🌐 **GitHub:** [github.com/usernameanda](https://github.com)
+    f"""
+* 📧 **Email:** muhammadchamdani34@gmail.com
+* 📱 **WhatsApp / Telepon:** 082226238706
+* 🌐 **GitHub:** [github.com/khamdanmuhammad](https://github.com/khamdanmuhammad)
 """
 )
