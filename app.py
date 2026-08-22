@@ -116,7 +116,7 @@ if selected_menu == "🏠 Dashboard":
             st.warning("Foto profil gagal dimuat. Menggunakan gambar placeholder.")
             st.image(
                 "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400",
-                caption="Muhammad Chamdani",
+                caption="Muhammad Chamdani S.kom",
                 use_container_width=True,
             )
 
@@ -166,7 +166,7 @@ elif selected_menu == "👨‍💻 About Me":
         )
     with about_col2:
         try:
-            st.image("file_0000000009247208b1c50a03e0175858.png", caption="Muhammad Chamdani s.kom", use_container_width=True)
+            st.image("file_0000000009247208b1c50a03e0175858.png", caption="Muhammad Chamdani S.kom", use_container_width=True)
         except:
             pass
 
