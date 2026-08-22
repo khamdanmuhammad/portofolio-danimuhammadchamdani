@@ -37,12 +37,15 @@ st.write("#")
 col1, col2 = st.columns([1, 2], gap="medium")
 
 with col1:
-    # Menampilkan foto profil yang Anda unggah
-    st.image(
-        "image_2.png", # Menggunakan file gambar yang Anda berikan
-        caption="Muhammad Chamdani",
-        use_container_width=True,
-    )
+    # Menampilkan foto profil lokal (pastikan file foto.jpg sudah di-upload ke GitHub)
+    try:
+        st.image("foto.jpg", caption="Muhammad Chamdani", use_container_width=True)
+    except:
+        st.image(
+            "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400",
+            caption="Muhammad Chamdani",
+            use_container_width=True,
+        )
 
 with col2:
     st.title("Muhammad Chamdani (Dani)")
@@ -132,7 +135,7 @@ st.markdown("---")
 st.header("📬 Hubungi Saya")
 st.write("Tertarik berkolaborasi atau ingin mengenal saya lebih lanjut? Silakan hubungi melalui:")
 st.markdown(
-    f"""
+    """
 * 📧 **Email:** muhammadchamdani34@gmail.com
 * 📱 **WhatsApp / Telepon:** 082226238706
 * 🌐 **GitHub:** [github.com/khamdanmuhammad](https://github.com/khamdanmuhammad)
