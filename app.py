@@ -9,7 +9,7 @@ st.set_page_config(
     layout="wide",
 )
 
-# Custom CSS untuk tampilan ala Web Design Engineer (Glowing Cyan & Dark UI)
+# Custom CSS untuk Navigasi Estetik & Tampilan Web Engineer Dark Mode
 st.markdown(
     """
     <style>
@@ -18,6 +18,51 @@ st.markdown(
         background-color: #0c1017;
         color: #cbd5e1;
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    /* ==========================================================
+       STYLING SIDEBAR & MENU NAVIGASI YANG ESTETIK & BERWARNA
+       ========================================================== */
+    [data-testid="stSidebar"] {
+        background-color: #111827;
+        border-right: 1px solid #1f2937;
+    }
+
+    /* Sembunyikan radio button bawaan streamlit agar bisa di-styling via label */
+    [data-testid="stSidebar"] .stRadio div[role="radiogroup"] {
+        gap: 8px;
+    }
+
+    [data-testid="stSidebar"] .stRadio label {
+        background-color: #162032;
+        border: 1px solid #1f2937;
+        border-radius: 10px;
+        padding: 10px 14px;
+        color: #94a3b8 !important;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    }
+
+    [data-testid="stSidebar"] .stRadio label:hover {
+        background-color: #1e293b;
+        color: #22d3ee !important;
+        border-color: #06b6d4;
+        transform: translateX(4px);
+    }
+
+    /* Header Navigasi di Sidebar */
+    .sidebar-header {
+        background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+        color: #0c1017;
+        padding: 12px 16px;
+        border-radius: 10px;
+        font-weight: 800;
+        font-family: monospace;
+        letter-spacing: 1px;
+        text-align: center;
+        margin-bottom: 20px;
+        box-shadow: 0 0 15px rgba(6, 182, 212, 0.3);
     }
 
     /* Typography Judul Utama */
@@ -38,23 +83,11 @@ st.markdown(
         font-family: monospace;
     }
 
-    /* Efek Foto Profil Bersudut Heksagonal/Rounded dengan Glow Cyan */
-    .profile-img-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 10px;
-        background: linear-gradient(135deg, #0891b2 0%, #0c1017 100%);
-        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-        box-shadow: 0 0 25px rgba(34, 211, 238, 0.3);
-        margin-bottom: 20px;
-    }
-
-    /* Styling Tombol Khas */
+    /* Styling Tombol Utama */
     .stButton>button {
         width: 100%;
         border-radius: 8px;
-        background-color: #06b6d4; /* Cyan Terang */
+        background-color: #06b6d4;
         color: #0c1017;
         font-weight: 700;
         padding: 0.75rem 1rem;
@@ -68,7 +101,7 @@ st.markdown(
         box-shadow: 0 0 25px rgba(34, 211, 238, 0.6);
     }
 
-    /* Styling Kartu Konten Ala Web UI Card */
+    /* Styling Kartu Konten */
     .card {
         padding: 24px;
         border-radius: 14px;
@@ -131,15 +164,17 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# --- MENU NAVIGASI SIDEBAR ---
-st.sidebar.markdown("## ⚡ SYSTEM_NAV")
+# --- MENU NAVIGASI SIDEBAR YANG ESTETIK ---
+st.sidebar.markdown('<div class="sidebar-header">⚡ SYSTEM_NAVIGATOR</div>', unsafe_allow_html=True)
+
 selected_menu = st.sidebar.radio(
     "Pilih Menu:",
-    ["🏠 Dashboard", "👨‍💻 About Me", "🚀 Portofolio & Pengalaman", "📄 Curriculum Vitae", "📬 Kontak"]
+    ["🏠 Dashboard", "👨‍💻 About Me", "🚀 Portofolio & Pengalaman", "📄 Curriculum Vitae", "📬 Kontak"],
+    label_visibility="collapsed"
 )
 
 st.sidebar.markdown("---")
-st.sidebar.info("💡 **Engineer UI:** Menampilkan tata letak modern berstandar industri dengan akses modul lengkap.")
+st.sidebar.info("💡 **Engineer UI:** Navigasi aktif dengan sistem tema warna gelap terintegrasi.")
 
 
 # ==========================================
