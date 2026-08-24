@@ -9,71 +9,73 @@ st.set_page_config(
     layout="wide",
 )
 
-# Custom CSS dengan Aksen Oranye & Kontras Menu Sidebar (Tidak Menyatu & Tidak Biru)
+# Custom CSS dengan Kontras Tinggi (Teks Terang, Menu Jelas, Aksen Oranye Elegan)
 st.markdown(
     """
     <style>
-    /* Global Background */
+    /* Global Background & Warna Teks Utama (Sangat Kontras) */
     .stApp {
-        background-color: #0b0f19;
-        color: #e2e8f0;
+        background-color: #090d16;
+        color: #f1f5f9;
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
     /* ==========================================================
-       STYLING SIDEBAR & MENU NAVIGASI (KONTRAS & ORANYE)
+       STYLING SIDEBAR & MENU NAVIGASI (TIDAK GELAP / KONTRAK TINGGI)
        ========================================================== */
     [data-testid="stSidebar"] {
-        background-color: #0f172a;
-        border-right: 1px solid #1e293b;
+        background-color: #131d31;
+        border-right: 2px solid #1e293b;
     }
 
-    /* Styling Kotak Pilihan Radio Menu agar Timbul dan Tidak Menyatu */
+    /* Kotak Pilihan Radio Menu (Sangat Jelas & Kontras) */
     [data-testid="stSidebar"] .stRadio div[role="radiogroup"] {
-        gap: 10px;
+        gap: 12px;
     }
 
     [data-testid="stSidebar"] .stRadio label {
         background-color: #1e293b !important;
         border: 1px solid #334155 !important;
-        border-radius: 10px;
-        padding: 12px 16px;
-        color: #cbd5e1 !important;
-        font-weight: 600;
+        border-radius: 12px;
+        padding: 14px 18px;
+        color: #ffffff !important;
+        font-weight: 700;
+        font-size: 1.05rem;
         transition: all 0.3s ease;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     }
 
     [data-testid="stSidebar"] .stRadio label:hover {
         background-color: #334155 !important;
-        color: #f59e0b !important;
-        border-color: #f59e0b !important;
-        transform: translateX(4px);
+        color: #fbbf24 !important;
+        border-color: #fbbf24 !important;
+        transform: translateX(6px);
     }
 
-    /* Menandai Menu yang Sedang Aktif dengan Warna Oranye */
+    /* Efek Khusus Menu Aktif / Dashboard (Warna Oranye Terang & Menonjol) */
     [data-testid="stSidebar"] .stRadio input:checked + div {
-        color: #f59e0b !important;
+        color: #fbbf24 !important;
     }
     
     [data-testid="stSidebar"] .stRadio label:has(input:checked) {
-        background-color: #1f2937 !important;
-        border-color: #f59e0b !important;
-        border-left: 5px solid #f59e0b !important;
+        background-color: #27354f !important;
+        border-color: #fbbf24 !important;
+        border-left: 6px solid #fbbf24 !important;
+        box-shadow: 0 0 15px rgba(251, 191, 36, 0.25);
     }
 
     /* Header Navigasi di Sidebar */
     .sidebar-header {
-        background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
-        color: #0b0f19;
-        padding: 12px 16px;
-        border-radius: 10px;
-        font-weight: 800;
+        background: linear-gradient(135deg, #d97706 0%, #fbbf24 100%);
+        color: #090d16;
+        padding: 14px 16px;
+        border-radius: 12px;
+        font-weight: 900;
         font-family: monospace;
-        letter-spacing: 1px;
+        letter-spacing: 1.5px;
         text-align: center;
-        margin-bottom: 20px;
-        box-shadow: 0 0 15px rgba(245, 158, 11, 0.3);
+        margin-bottom: 24px;
+        box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
     }
 
     /* Typography Judul Utama */
@@ -87,60 +89,61 @@ st.markdown(
     
     /* Typography Sub-Judul */
     h3.sub-title {
-        color: #f59e0b;
-        font-weight: 600;
+        color: #fbbf24;
+        font-weight: 700;
         font-size: 1.25rem;
         margin-bottom: 1rem;
         font-family: monospace;
     }
 
-    /* Styling Tombol Utama (Aksen Oranye) */
+    /* Styling Tombol Utama (Aksen Oranye Terang) */
     .stButton>button {
         width: 100%;
-        border-radius: 8px;
+        border-radius: 10px;
         background-color: #f59e0b;
-        color: #0b0f19;
-        font-weight: 700;
+        color: #090d16;
+        font-weight: 800;
         padding: 0.75rem 1rem;
         border: none;
         box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
         transition: all 0.3s ease;
     }
     .stButton>button:hover {
-        background-color: #d97706;
-        color: #ffffff;
-        box-shadow: 0 0 25px rgba(217, 119, 6, 0.6);
+        background-color: #fbbf24;
+        color: #090d16;
+        box-shadow: 0 0 25px rgba(251, 191, 36, 0.7);
     }
 
-    /* Styling Kartu Konten */
+    /* Styling Kartu Konten (Jauh Lebih Terang & Kontras dari Background Utama) */
     .card {
-        padding: 24px;
-        border-radius: 14px;
-        background-color: #161e2e;
-        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+        padding: 26px;
+        border-radius: 16px;
+        background-color: #17223b;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
         margin-bottom: 20px;
-        border: 1px solid #283548;
-        color: #e2e8f0;
+        border: 1px solid #334155;
+        color: #f1f5f9;
         transition: transform 0.3s ease, border-color 0.3s ease;
     }
     .card:hover {
-        border-color: #f59e0b;
+        border-color: #fbbf24;
     }
     
     .card h3, .card p, .card li {
-        color: #e2e8f0 !important;
+        color: #f1f5f9 !important;
     }
     .card h3 {
         color: #ffffff !important;
+        font-weight: 700;
     }
 
     /* Typography Header Bagian */
     .section-header {
-        color: #f59e0b;
-        font-weight: 700;
+        color: #fbbf24;
+        font-weight: 800;
         margin-top: 1.5rem;
         margin-bottom: 1.5rem;
-        border-bottom: 2px solid #283548;
+        border-bottom: 2px solid #334155;
         padding-bottom: 0.5rem;
         font-family: monospace;
         letter-spacing: 1px;
@@ -148,8 +151,9 @@ st.markdown(
 
     /* Link styling */
     a {
-        color: #f59e0b !important;
+        color: #fbbf24 !important;
         text-decoration: none;
+        font-weight: 600;
     }
     a:hover {
         text-decoration: underline;
@@ -158,12 +162,13 @@ st.markdown(
     /* Code badge style */
     .code-badge {
         background-color: #0f172a;
-        color: #f59e0b;
-        padding: 2px 8px;
-        border-radius: 4px;
+        color: #fbbf24;
+        padding: 4px 10px;
+        border-radius: 6px;
         font-family: monospace;
-        font-size: 0.9em;
-        border: 1px solid #334155;
+        font-size: 0.95em;
+        border: 1px solid #475569;
+        font-weight: 600;
     }
 
     /* Responsivitas Mobile */
@@ -185,7 +190,7 @@ selected_menu = st.sidebar.radio(
 )
 
 st.sidebar.markdown("---")
-st.sidebar.info("💡 **Engineer UI:** Navigasi aktif dengan skema kontras modern.")
+st.sidebar.info("💡 **Engineer UI:** Navigasi aktif dengan skema kontras tinggi terang & jelas.")
 
 
 # ==========================================
@@ -206,7 +211,7 @@ if selected_menu == "🏠 Dashboard":
             )
 
     with prof_col2:
-        st.markdown('<h1 class="main-title">Hello, It\'s Me<br><span style="color: #f59e0b;">Muhammad Chamdani</span></h1>', unsafe_allow_html=True)
+        st.markdown('<h1 class="main-title">Hello, It\'s Me<br><span style="color: #fbbf24;">Muhammad Chamdani</span></h1>', unsafe_allow_html=True)
         st.markdown('<h3 class="sub-title">And I\'m a Web Engineer & Digital Creator</h3>', unsafe_allow_html=True)
         st.markdown(
             """
@@ -345,7 +350,7 @@ elif selected_menu == "🚀 Portofolio & Pengalaman":
 # ==========================================
 elif selected_menu == "📄 Curriculum Vitae":
     st.markdown('<h2 class="section-header">// CURRICULUM_VITAE</h2>', unsafe_allow_html=True)
-    st.write("Berikut adalah dokumen Curriculum Vitae (CV) profesional saya. Anda dapat melihat pratinjau langsung isi dokumen di bawah atau mengunduhnya melalui tombol aksi.")
+    st.write("Berikut adalah dokumen Curriculum Vitae (CV) profesional Anda. Anda dapat melihat pratinjau isi dokumen secara langsung di bawah ini atau mengunduhnya.")
 
     cv_file_path = "CV_ATS_Muhammad_Chamdani.pdf"
 
@@ -357,7 +362,7 @@ elif selected_menu == "📄 Curriculum Vitae":
         
         with col_cv1:
             st.download_button(
-                label="📥 Unduh CV (PDF)",
+                label="📥 Unduh File CV (PDF)",
                 data=PDFbyte,
                 file_name="CV_ATS_Muhammad_Chamdani.pdf",
                 mime="application/octet-stream"
@@ -365,13 +370,13 @@ elif selected_menu == "📄 Curriculum Vitae":
             
         st.markdown("<br>", unsafe_allow_html=True)
         
-        # Pratinjau PDF interaktif agar dokumen dapat dilihat dengan jelas
+        # Pratinjau PDF interaktif agar dokumen dapat dilihat langsung dengan jelas
         base64_pdf = base64.b64encode(PDFbyte).decode('utf-8')
-        pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="700px" type="application/pdf" style="border-radius: 12px; border: 1px solid #334155;"></iframe>'
+        pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="750px" type="application/pdf" style="border-radius: 14px; border: 2px solid #334155; background-color: #ffffff;"></iframe>'
         st.markdown(pdf_display, unsafe_allow_html=True)
         
     else:
-        st.warning("⚠️ File PDF CV (`CV_ATS_Muhammad_Chamdani.pdf`) belum ditemukan pada direktori sistem. Pastikan file sudah diletakkan di folder yang sama dengan skrip aplikasi.")
+        st.warning("⚠️ File PDF CV (`CV_ATS_Muhammad_Chamdani.pdf`) belum ditemukan pada direktori sistem. Pastikan file tersebut sudah diletakkan di dalam folder yang sama dengan skrip aplikasi.")
 
 
 # ==========================================
