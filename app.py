@@ -1,5 +1,6 @@
 import streamlit as st
 import os
+import base64
 
 # Konfigurasi Halaman
 st.set_page_config(
@@ -8,80 +9,102 @@ st.set_page_config(
     layout="wide",
 )
 
-# Custom CSS untuk tampilan Web Engineer Dark Mode yang Estetik & Modern
+# Custom CSS untuk tampilan ala Web Design Engineer (Glowing Cyan & Dark UI)
 st.markdown(
     """
     <style>
-    /* Styling Latar Belakang Utama (Dark Theme Engineer Style) */
+    /* Global Background & Font */
     .stApp {
-        background-color: #0b0f19;
-        color: #e2e8f0;
+        background-color: #0c1017;
+        color: #cbd5e1;
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
-    /* Styling Judul Utama */
+    /* Typography Judul Utama */
     h1.main-title {
-        color: #38bdf8;
+        color: #ffffff;
         font-weight: 800;
         font-size: 2.8rem;
         margin-bottom: 0.2rem;
         letter-spacing: -0.025em;
     }
     
-    /* Styling Sub-Judul */
+    /* Typography Sub-Judul */
     h3.sub-title {
-        color: #818cf8;
+        color: #22d3ee;
         font-weight: 600;
         font-size: 1.25rem;
         margin-bottom: 1rem;
         font-family: monospace;
     }
 
-    /* Styling Tombol */
+    /* Efek Foto Profil Bersudut Heksagonal/Rounded dengan Glow Cyan */
+    .profile-img-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        background: linear-gradient(135deg, #0891b2 0%, #0c1017 100%);
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        box-shadow: 0 0 25px rgba(34, 211, 238, 0.3);
+        margin-bottom: 20px;
+    }
+
+    /* Styling Tombol Khas */
     .stButton>button {
         width: 100%;
         border-radius: 8px;
-        background-color: #38bdf8; /* Aksen Cyan Engineer */
-        color: #0b0f19;
+        background-color: #06b6d4; /* Cyan Terang */
+        color: #0c1017;
         font-weight: 700;
         padding: 0.75rem 1rem;
         border: none;
+        box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
         transition: all 0.3s ease;
     }
     .stButton>button:hover {
-        background-color: #0ea5e9;
-        color: white;
+        background-color: #22d3ee;
+        color: #0c1017;
+        box-shadow: 0 0 25px rgba(34, 211, 238, 0.6);
     }
 
-    /* Styling Kartu Konten (Card Dark Mode ala Terminal/Editor) */
+    /* Styling Kartu Konten Ala Web UI Card */
     .card {
         padding: 24px;
-        border-radius: 12px;
-        background-color: #1e293b;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        border-radius: 14px;
+        background-color: #131b2e;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
         margin-bottom: 20px;
-        border: 1px solid #334155;
-        color: #e2e8f0;
+        border: 1px solid #1e293b;
+        color: #cbd5e1;
+        transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .card:hover {
+        border-color: #06b6d4;
     }
     
     .card h3, .card p, .card li {
-        color: #e2e8f0 !important;
+        color: #cbd5e1 !important;
+    }
+    .card h3 {
+        color: #f8fafc !important;
     }
 
     /* Typography Header Bagian */
     .section-header {
-        color: #38bdf8;
+        color: #22d3ee;
         font-weight: 700;
         margin-top: 1.5rem;
         margin-bottom: 1.5rem;
         border-bottom: 2px solid #1e293b;
         padding-bottom: 0.5rem;
         font-family: monospace;
+        letter-spacing: 1px;
     }
 
     /* Link styling */
     a {
-        color: #38bdf8 !important;
+        color: #22d3ee !important;
         text-decoration: none;
     }
     a:hover {
@@ -91,15 +114,15 @@ st.markdown(
     /* Code badge style */
     .code-badge {
         background-color: #0f172a;
-        color: #38bdf8;
+        color: #22d3ee;
         padding: 2px 8px;
         border-radius: 4px;
         font-family: monospace;
         font-size: 0.9em;
-        border: 1px solid #334155;
+        border: 1px solid #1e293b;
     }
 
-    /* Responsivitas untuk Mobile */
+    /* Responsivitas Mobile */
     @media (max-width: 768px) {
         h1.main-title { font-size: 2rem; }
     }
@@ -116,7 +139,7 @@ selected_menu = st.sidebar.radio(
 )
 
 st.sidebar.markdown("---")
-st.sidebar.info("💡 **Engineer Note:** Gunakan panel navigasi di atas untuk mengakses modul portofolio Muhammad Chamdani.")
+st.sidebar.info("💡 **Engineer UI:** Menampilkan tata letak modern berstandar industri dengan akses modul lengkap.")
 
 
 # ==========================================
@@ -137,13 +160,13 @@ if selected_menu == "🏠 Dashboard":
             )
 
     with prof_col2:
-        st.markdown('<h1 class="main-title">Muhammad Chamdani (Dani)</h1>', unsafe_allow_html=True)
-        st.markdown('<h3 class="sub-title">> S1 Teknik Informatika | Web Engineer & Digital Creator</h3>', unsafe_allow_html=True)
+        st.markdown('<h1 class="main-title">Hello, It\'s Me<br><span style="color: #22d3ee;">Muhammad Chamdani</span></h1>', unsafe_allow_html=True)
+        st.markdown('<h3 class="sub-title">And I\'m a Web Engineer & Digital Creator</h3>', unsafe_allow_html=True)
         st.markdown(
             """
             📍 **Domisili:** Wonosobo, Jawa Tengah <span class="code-badge">Asal: Pekalongan</span>  
             
-            Halo! Selamat datang di portofolio sistem digital saya. Dirancang dengan arsitektur bersih ala *web engineering*, platform ini merangkum kapabilitas teknis, rekam jejak profesional, serta deployment proyek riil. Silakan jelajahi modul melalui navigasi sidebar.
+            Selamat datang di portofolio digital berbasis arsitektur *cyber-dark UI*. Platform ini mendokumentasikan kapabilitas teknis, rekam jejak pengembangan sistem, serta proyek-proyek inovatif yang telah saya selesaikan.
             """,
             unsafe_allow_html=True
         )
@@ -174,9 +197,10 @@ elif selected_menu == "👨‍💻 About Me":
         st.markdown(
             """
             <div class="card">
+            <h3>About Me</h3>
             <p>Halo! Saya seorang lulusan <strong>Teknik Informatika Universitas Sains Al-Qur'an (UNSIQ) Wonosobo</strong>. 
-            Saya memiliki kombinasi unik antara keahlian teknis mendalam di bidang pengembangan web, analitik data, sistem IoT, dan pengalaman nyata di sektor profesional.</p>
-            <p>Sebagai seorang engineer, saya terbiasa menulis kode yang bersih, berpikir analitis dalam memecahkan masalah, serta memiliki komunikasi yang adaptif untuk berkolaborasi dalam tim maupun pelayanan klien.</p>
+            Saya memiliki spesialisasi dalam merancang aplikasi web yang responsif, analitik data, implementasi sistem IoT, serta memiliki dedikasi tinggi pada standar kualitas kode yang bersih.</p>
+            <p>Berbekal pengalaman lintas industri baik di bidang teknologi maupun pelayanan profesional, saya terbiasa menghadirkan solusi fungsional yang berorientasi pada kepuasan pengguna akhir.</p>
             </div>
             """,
             unsafe_allow_html=True
@@ -275,7 +299,7 @@ elif selected_menu == "🚀 Portofolio & Pengalaman":
 # ==========================================
 elif selected_menu == "📄 Curriculum Vitae":
     st.markdown('<h2 class="section-header">// CURRICULUM_VITAE</h2>', unsafe_allow_html=True)
-    st.write("Berikut adalah dokumen Curriculum Vitae (CV) profesional saya. Anda dapat melihat pratinjau langsung di bawah atau mengunduhnya melalui tombol yang tersedia.")
+    st.write("Berikut adalah dokumen Curriculum Vitae (CV) profesional saya. Anda dapat melihat pratinjau langsung di bawah atau mengunduhnya melalui tombol aksi.")
 
     cv_file_path = "CV_ATS_Muhammad_Chamdani.pdf"
 
@@ -295,10 +319,9 @@ elif selected_menu == "📄 Curriculum Vitae":
             
         st.markdown("<br>", unsafe_allow_html=True)
         
-        # Pratinjau PDF menggunakan iframe HTML
-        import base64
+        # Pratinjau PDF interaktif
         base64_pdf = base64.b64encode(PDFbyte).decode('utf-8')
-        pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="700px" type="application/pdf" style="border-radius: 12px; border: 1px solid #334155;"></iframe>'
+        pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="700px" type="application/pdf" style="border-radius: 12px; border: 1px solid #1e293b;"></iframe>'
         st.markdown(pdf_display, unsafe_allow_html=True)
         
     else:
@@ -314,6 +337,7 @@ elif selected_menu == "📬 Kontak":
     st.markdown(
         """
         <div class="card">
+        <h3>Contact Me!</h3>
         <p>📧 <strong>Email:</strong> muhammadchamdani34@gmail.com</p>
         <p>📱 <strong>WhatsApp / Telepon:</strong> 082226238706</p>
         <p>🌐 <strong>GitHub:</strong> <a href="https://github.com/khamdanmuhammad" target="_blank">github.com/khamdanmuhammad</a></p>
