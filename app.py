@@ -9,52 +9,63 @@ st.set_page_config(
     layout="wide",
 )
 
-# Custom CSS untuk Navigasi Estetik & Tampilan Web Engineer Dark Mode
+# Custom CSS dengan Aksen Oranye & Kontras Menu Sidebar (Tidak Menyatu & Tidak Biru)
 st.markdown(
     """
     <style>
-    /* Global Background & Font */
+    /* Global Background */
     .stApp {
-        background-color: #0c1017;
-        color: #cbd5e1;
+        background-color: #0b0f19;
+        color: #e2e8f0;
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
     /* ==========================================================
-       STYLING SIDEBAR & MENU NAVIGASI YANG ESTETIK & BERWARNA
+       STYLING SIDEBAR & MENU NAVIGASI (KONTRAS & ORANYE)
        ========================================================== */
     [data-testid="stSidebar"] {
-        background-color: #111827;
-        border-right: 1px solid #1f2937;
+        background-color: #0f172a;
+        border-right: 1px solid #1e293b;
     }
 
-    /* Sembunyikan radio button bawaan streamlit agar bisa di-styling via label */
+    /* Styling Kotak Pilihan Radio Menu agar Timbul dan Tidak Menyatu */
     [data-testid="stSidebar"] .stRadio div[role="radiogroup"] {
-        gap: 8px;
+        gap: 10px;
     }
 
     [data-testid="stSidebar"] .stRadio label {
-        background-color: #162032;
-        border: 1px solid #1f2937;
+        background-color: #1e293b !important;
+        border: 1px solid #334155 !important;
         border-radius: 10px;
-        padding: 10px 14px;
-        color: #94a3b8 !important;
+        padding: 12px 16px;
+        color: #cbd5e1 !important;
         font-weight: 600;
         transition: all 0.3s ease;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
     }
 
     [data-testid="stSidebar"] .stRadio label:hover {
-        background-color: #1e293b;
-        color: #22d3ee !important;
-        border-color: #06b6d4;
+        background-color: #334155 !important;
+        color: #f59e0b !important;
+        border-color: #f59e0b !important;
         transform: translateX(4px);
+    }
+
+    /* Menandai Menu yang Sedang Aktif dengan Warna Oranye */
+    [data-testid="stSidebar"] .stRadio input:checked + div {
+        color: #f59e0b !important;
+    }
+    
+    [data-testid="stSidebar"] .stRadio label:has(input:checked) {
+        background-color: #1f2937 !important;
+        border-color: #f59e0b !important;
+        border-left: 5px solid #f59e0b !important;
     }
 
     /* Header Navigasi di Sidebar */
     .sidebar-header {
-        background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
-        color: #0c1017;
+        background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+        color: #0b0f19;
         padding: 12px 16px;
         border-radius: 10px;
         font-weight: 800;
@@ -62,7 +73,7 @@ st.markdown(
         letter-spacing: 1px;
         text-align: center;
         margin-bottom: 20px;
-        box-shadow: 0 0 15px rgba(6, 182, 212, 0.3);
+        box-shadow: 0 0 15px rgba(245, 158, 11, 0.3);
     }
 
     /* Typography Judul Utama */
@@ -76,60 +87,60 @@ st.markdown(
     
     /* Typography Sub-Judul */
     h3.sub-title {
-        color: #22d3ee;
+        color: #f59e0b;
         font-weight: 600;
         font-size: 1.25rem;
         margin-bottom: 1rem;
         font-family: monospace;
     }
 
-    /* Styling Tombol Utama */
+    /* Styling Tombol Utama (Aksen Oranye) */
     .stButton>button {
         width: 100%;
         border-radius: 8px;
-        background-color: #06b6d4;
-        color: #0c1017;
+        background-color: #f59e0b;
+        color: #0b0f19;
         font-weight: 700;
         padding: 0.75rem 1rem;
         border: none;
-        box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+        box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
         transition: all 0.3s ease;
     }
     .stButton>button:hover {
-        background-color: #22d3ee;
-        color: #0c1017;
-        box-shadow: 0 0 25px rgba(34, 211, 238, 0.6);
+        background-color: #d97706;
+        color: #ffffff;
+        box-shadow: 0 0 25px rgba(217, 119, 6, 0.6);
     }
 
     /* Styling Kartu Konten */
     .card {
         padding: 24px;
         border-radius: 14px;
-        background-color: #131b2e;
+        background-color: #161e2e;
         box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
         margin-bottom: 20px;
-        border: 1px solid #1e293b;
-        color: #cbd5e1;
+        border: 1px solid #283548;
+        color: #e2e8f0;
         transition: transform 0.3s ease, border-color 0.3s ease;
     }
     .card:hover {
-        border-color: #06b6d4;
+        border-color: #f59e0b;
     }
     
     .card h3, .card p, .card li {
-        color: #cbd5e1 !important;
+        color: #e2e8f0 !important;
     }
     .card h3 {
-        color: #f8fafc !important;
+        color: #ffffff !important;
     }
 
     /* Typography Header Bagian */
     .section-header {
-        color: #22d3ee;
+        color: #f59e0b;
         font-weight: 700;
         margin-top: 1.5rem;
         margin-bottom: 1.5rem;
-        border-bottom: 2px solid #1e293b;
+        border-bottom: 2px solid #283548;
         padding-bottom: 0.5rem;
         font-family: monospace;
         letter-spacing: 1px;
@@ -137,7 +148,7 @@ st.markdown(
 
     /* Link styling */
     a {
-        color: #22d3ee !important;
+        color: #f59e0b !important;
         text-decoration: none;
     }
     a:hover {
@@ -147,12 +158,12 @@ st.markdown(
     /* Code badge style */
     .code-badge {
         background-color: #0f172a;
-        color: #22d3ee;
+        color: #f59e0b;
         padding: 2px 8px;
         border-radius: 4px;
         font-family: monospace;
         font-size: 0.9em;
-        border: 1px solid #1e293b;
+        border: 1px solid #334155;
     }
 
     /* Responsivitas Mobile */
@@ -164,7 +175,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# --- MENU NAVIGASI SIDEBAR YANG ESTETIK ---
+# --- MENU NAVIGASI SIDEBAR ---
 st.sidebar.markdown('<div class="sidebar-header">⚡ SYSTEM_NAVIGATOR</div>', unsafe_allow_html=True)
 
 selected_menu = st.sidebar.radio(
@@ -174,7 +185,7 @@ selected_menu = st.sidebar.radio(
 )
 
 st.sidebar.markdown("---")
-st.sidebar.info("💡 **Engineer UI:** Navigasi aktif dengan sistem tema warna gelap terintegrasi.")
+st.sidebar.info("💡 **Engineer UI:** Navigasi aktif dengan skema kontras modern.")
 
 
 # ==========================================
@@ -195,7 +206,7 @@ if selected_menu == "🏠 Dashboard":
             )
 
     with prof_col2:
-        st.markdown('<h1 class="main-title">Hello, It\'s Me<br><span style="color: #22d3ee;">Muhammad Chamdani</span></h1>', unsafe_allow_html=True)
+        st.markdown('<h1 class="main-title">Hello, It\'s Me<br><span style="color: #f59e0b;">Muhammad Chamdani</span></h1>', unsafe_allow_html=True)
         st.markdown('<h3 class="sub-title">And I\'m a Web Engineer & Digital Creator</h3>', unsafe_allow_html=True)
         st.markdown(
             """
@@ -334,7 +345,7 @@ elif selected_menu == "🚀 Portofolio & Pengalaman":
 # ==========================================
 elif selected_menu == "📄 Curriculum Vitae":
     st.markdown('<h2 class="section-header">// CURRICULUM_VITAE</h2>', unsafe_allow_html=True)
-    st.write("Berikut adalah dokumen Curriculum Vitae (CV) profesional saya. Anda dapat melihat pratinjau langsung di bawah atau mengunduhnya melalui tombol aksi.")
+    st.write("Berikut adalah dokumen Curriculum Vitae (CV) profesional saya. Anda dapat melihat pratinjau langsung isi dokumen di bawah atau mengunduhnya melalui tombol aksi.")
 
     cv_file_path = "CV_ATS_Muhammad_Chamdani.pdf"
 
@@ -354,9 +365,9 @@ elif selected_menu == "📄 Curriculum Vitae":
             
         st.markdown("<br>", unsafe_allow_html=True)
         
-        # Pratinjau PDF interaktif
+        # Pratinjau PDF interaktif agar dokumen dapat dilihat dengan jelas
         base64_pdf = base64.b64encode(PDFbyte).decode('utf-8')
-        pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="700px" type="application/pdf" style="border-radius: 12px; border: 1px solid #1e293b;"></iframe>'
+        pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="700px" type="application/pdf" style="border-radius: 12px; border: 1px solid #334155;"></iframe>'
         st.markdown(pdf_display, unsafe_allow_html=True)
         
     else:
